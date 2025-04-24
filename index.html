@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Kamil Pavlicko - Full-Stack Engineer passionate about building scalable and thoughtful digital products." />
+  <meta name="author" content="Kamil Pavlicko" />
+  <title>Kamil Pavlicko</title>
+
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    html {
+      cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAqqqqAP///wC6uroAMy4pAHd3dwAAITMAgICAAGlpaQBEREQAMxIAAJSUlAAhISEAEhAPAHh4eAAAAAAAAAAAAAAAAACZmZmQAAAAAAAAAAAAAACZAAAACZAAAAAAAAAAAAAJkN3dREAJAAAAAAAAAAAACQ3d3UREQJkAAAAAAAAAAJkNzMzMhEQAkAAAAAAAAACQzMnMzMhKzAkAAAAAAAAAkMIgXMzMjMzAkAAAAAAAAJDHJXzMzMiIzAAAAAAAAAkMIiLMzMzJmYgJAAAAAAAJDCciKSzMzJmZgAAAAAAJmQxyJZlVLMzJmYAAAAAJmQDcKVIZmVXMyZmAAAAAmQDdwkInIhmSLMmZgAAAAJDczCQiInIiEizJmYAAAACQwiIiInInIiIsyZgAAAAAkCACInInIiIszJmQAAAAAAAAAMAnIhLMzMmYAAAAAAAAAJm2AHIszMmZAAAAAAAAAACbZWYCLMyQAAAAAAAAAAAJllZQIszIAAAAAAAAAAAAmQVlAJzMgAAAAAAAAAAACZBmUAkMzIAAAAAAAAAAAAkJZgAJDMgAAAAAAAAAAACZZpAAkKzJAAAAAAAAAAAJkGYAAJCZkAAAAAAAAACZmQZgAAAJAAAAAAAAAAAJAABmAAAAAAAAAAAAAAAAmQ7gYAAAAAAAAAAAAAAAAJDu4wAAAAAAAAAAAAAAAAAO4zAAAAAAAAAAAAAAAAAAAzABkAAAAAAAAAAAAAAAAAAJkAAAAAAAAAAAAAAAAAD//wH///wAf//4AD//+AAP//AAB//wAAP/8AAB//AAAf/gAAD/4AAA/4AAAP4AAAD8AAAA/AAAAPwAAAH8AAAD/mAAB//AAA//wAA//4AB//8AA//+AgP//gYH//wMB//4HA//wD4f/4B///8A////Af///wP///8B////h////w=='), auto;
+    }
+    
+    a, a:hover {
+      cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAqqqqAP///wC6uroAMy4pAHd3dwAAITMAgICAAGlpaQBEREQAMxIAAJSUlAAhISEAEhAPAHh4eAAAAAAAAAAAAAAAAACZmZmQAAAAAAAAAAAAAACZAAAACZAAAAAAAAAAAAAJkN3dREAJAAAAAAAAAAAACQ3d3UREQJkAAAAAAAAAAJkNzMzMhEQAkAAAAAAAAACQzMnMzMhKzAkAAAAAAAAAkMIgXMzMjMzAkAAAAAAAAJDHJXzMzMiIzAAAAAAAAAkMIiLMzMzJmYgJAAAAAAAJDCciKSzMzJmZgAAAAAAJmQxyJZlVLMzJmYAAAAAJmQDcKVIZmVXMyZmAAAAAmQDdwkInIhmSLMmZgAAAAJDczCQiInIiEizJmYAAAACQwiIiInInIiIsyZgAAAAAkCACInInIiIszJmQAAAAAAAAAMAnIhLMzMmYAAAAAAAAAJm2AHIszMmZAAAAAAAAAACbZWYCLMyQAAAAAAAAAAAJllZQIszIAAAAAAAAAAAAmQVlAJzMgAAAAAAAAAAACZBmUAkMzIAAAAAAAAAAAAkJZgAJDMgAAAAAAAAAAACZZpAAkKzJAAAAAAAAAAAJkGYAAJCZkAAAAAAAAACZmQZgAAAJAAAAAAAAAAAJAABmAAAAAAAAAAAAAAAAmQ7gYAAAAAAAAAAAAAAAAJDu4wAAAAAAAAAAAAAAAAAO4zAAAAAAAAAAAAAAAAAAAzABkAAAAAAAAAAAAAAAAAAJkAAAAAAAAAAAAAAAAAD//wH///wAf//4AD//+AAP//AAB//wAAP/8AAB//AAAf/gAAD/4AAA/4AAAP4AAAD8AAAA/AAAAPwAAAH8AAAD/mAAB//AAA//wAA//4AB//8AA//+AgP//gYH//wMB//4HA//wD4f/4B///8A////Af///wP///8B////h////w=='), auto;
+    }
+
+  
+    :root {
+      --text-color: #ffffff;
+      --accent-color: #6366f1;
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --green: #22c55e;
+      --green-dark: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(120deg, #f43f5e, #3b82f6, #10b981);
+      background-size: 300% 300%;
+      animation: gradientShift 18s ease infinite;
+      color: var(--text-color);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      padding: 1.25rem 2rem;
+      background: var(--card-bg);
+      flex-wrap: wrap;
+      z-index: 1;
+      max-width: 700px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .left-side {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .name-badge {
+      min-width: max-content;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .name-badge h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+    }
+
+    .badge.open-to-work {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    .badge.open-to-work .dot {
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: 0.4;
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+      }
+    }
+
+    .tagline {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+      word-break: break-word;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .info-item i {
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      min-width: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item a {
+      position: relative;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding-bottom: 2px;
+    }
+
+    .info-item a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .info-item:hover a::after {
+      width: 100%;
+    }
+
+    .info-item:hover i {
+      transform: translateX(3px);
+    }
+
+    .info-item a:hover {
+      color: #c7d2fe;
+      transform: translateX(4px);
+    }
+
+    .button-group {
+      padding: 1rem 0;
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .button.resume {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      animation: pulse 2s infinite;
+    }
+
+    .button.hire {
+      background: linear-gradient(135deg, #9333ea, #f43f5e);
+      animation: wiggle 1.2s infinite;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      100% {
+        transform: rotate(-5deg);
+      }
+
+      50% {
+        transform: rotate(5deg);
+      }
+    }
+
+    .floaters {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floater-emoji {
+      position: absolute;
+      top: -60px;
+      font-size: 2rem;
+      animation: fall var(--duration, 20s) linear infinite;
+      left: var(--left);
+      animation-delay: var(--delay);
+      transform: rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) scale(var(--scale, 1)) rotate(0deg);
+        opacity: 0;
+      }
+
+      10%,
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(120vh) scale(calc(var(--scale, 1) * 1.2)) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        gap: 1.5rem;
+      }
+
+      .right-side {
+        order: -1;
+      }
+
+      .avatar {
+        width: 180px;
+        height: 180px;
+      }
+
+      .name-badge {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .button-group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .button {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="floaters"></div>
+
+    <div class="container">
+      <div class="left-side">
+        <div class="name-badge">
+          <h1>Kamil Pavličko</h1>
+          <span class="badge open-to-work">
+            <span class="dot"></span>Open to Work
+          </span>
+        </div>
+
+        <p class="tagline">Full-Stack Engineer with a passion for building scalable platforms and thoughtful digital
+          products.</p>
+
+        <div class="info-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com/in/kamilpavlicko" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+        <div class="info-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/kamilpavlicko" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>       
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:kamil.pavlicko@gmail.com">kamil.pavlicko@gmail.com</a>
+        </div>
+
+        <div class="button-group">
+          <a class="button resume" href="cv.pdf" role="button">📄 View My Resume</a>
+          <a class="button hire"
+            href="mailto:kamil.pavlicko@gmail.com?subject=Job%20Offer&body=Hey%20Kamil%20Pavlicko..." role="button">✉️
+            Hire Me</a>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <img class="avatar" src="profile.jpg" alt="Profile Photo" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const emojis = ["💻", "⚙️", "☁️", "🧠", "🛠️", "📦", "📡", "🧰", "🚀", "🔧", "📂", "🔒", "🧪", "⌨️", "💎"];
+    const floatersContainer = document.querySelector('.floaters');
+    for (let i = 0; i < 28; i++) {
+      const el = document.createElement("div");
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const left = Math.floor(Math.random() * 100);
+      const delay = (Math.random() * 8).toFixed(2);
+      const duration = 12 + Math.floor(Math.random() * 16);
+      const rotation = Math.floor(Math.random() * 360);
+      const scale = (0.8 + Math.random() * 0.6).toFixed(2);
+      el.className = "floater-emoji";
+      el.textContent = emoji;
+      el.style.setProperty("--left", `${left}%`);
+      el.style.setProperty("--delay", `${delay}s`);
+      el.style.setProperty("--duration", `${duration}s`);
+      el.style.setProperty("--rotation", `${rotation}deg`);
+      el.style.setProperty("--scale", scale);
+      floatersContainer.appendChild(el);
+    }
+  </script>
+</body>
+
+</html>
